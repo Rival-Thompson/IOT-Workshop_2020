@@ -1,0 +1,6 @@
+{
+    "sketch": "Session2/Basics_Serial/app.ino",
+    "board": "arduino:avr:uno",
+    "programmer": "AVR ISP",
+    "port": "/dev/cu.wchusbserial14310"
+}
