@@ -198,6 +198,22 @@ The **LED** class should contain the following functionality.
 
 The result should be the same as in the previous exercise.
 
+## Extras ##
+
+If you are ready with the exercises and feel like preparing a bit for the next session you can already read and thinker with the following libraries.
+
+- [ESP8266WiFi](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html)
+- [Pub Sub Client](https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_esp8266/mqtt_esp8266.ino)
+- [Arduino JSON](https://arduinojson.org)
+
 ## Useful links ##
 
 [Documentation about serial communication](https://learn.sparkfun.com/tutorials/serial-communication/all)
+
+## Thank word ##
+
+Thank you following my second session from the IOT-Workshop: First steps to home automation. I hope you had a great time and learned how to use serial communication to integrate multiple Arduino's into one solution. in the next session we will connect our ESP8266 to the network.
+
+I hope to see you guys within two weeks!
+
+***Rival Thompson***
