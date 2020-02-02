@@ -2,13 +2,13 @@
 
 ## Intro ##
 
-To make a fully integrated system you should be able to communicate between different / multiple modules and solutions. Therefor you have a lot of possibilities. This session wil focus on serial communication because this is the most common and easy to set up. We are going to write messages to the console and send instructions from the serial console to the Arduino. In the next session we are going to communicate using the network and possibly the internet.
+To make a fully integrated system you should be able to communicate between different / multiple modules and solutions. Therefore you have a lot of possibilities. This session will focus on serial communication, because this is the most common and easy to set up. We are going to write messages to the console and send instructions from the serial console to the Arduino. In the next session we are going to communicate using the network and possibly the internet.
 
 ## First Serial Message ##
 
 As seen in our previous session an Arduino can send messages over a serial bust to the serial monitor in the IDE. This is convenient for debugging and testing reasons. In our first exercise we are going to print several messages to our serial monitor.
 
-Herefor we will need to start the predefined serial connection **'Serial'** with the ```Serial.begin([BAUDRATE]);``` method. The baud rate is a number that indicates at what speed the serial communication happens, this is expressed in bits/second. In theory you can run it at any speed you desire as long as both sides can handle the speed you set it at. In practice there ar several standard speeds you can run at, these are 1200, 2400, 4800, 9600, 19200, 38400, 57600, and 115200. Arduino IDE by default choses 9600 where as VS Code uses 115200 by default.
+Herefor we will need to start the predefined serial connection **'Serial'** with the ```Serial.begin([BAUDRATE]);``` method. The baud rate is a number that indicates at what speed the serial communication happens, this is expressed in bits/second. In theory you can run it at any speed you desire, as long as both sides can handle the speed you set it at. In practice there are several standard speeds you can run at, these are 1200, 2400, 4800, 9600, 19200, 38400, 57600, and 115200. Arduino IDE by default chooses 9600 where as VS Code uses 115200 by default.
 
 To send a message over your serial connection you have several predefined methods on your Serial object to do so.
 
@@ -20,7 +20,7 @@ For most of our communication we will use `print` and `println`. These will resu
 
 ### Exercise 1 ##
 
-I want to see how many times the `loop` function has ran in the console. Every **10th** time the function runs the counter should be reset and the message `10 loops completed` should be printed.
+I want to see how many times the `loop` function has ran in the console. Every **10th** time the function runs, the counter should be reset and the message `10 loops completed` should be printed.
 
 It is recommended to add a `delay` at the end of your loop function. This makes it easier to follow the message stream in the serial monitor.
 
@@ -44,7 +44,7 @@ void loop() {
 
 ## Receiving our first message ##
 
-For this section we are going to send a message from the serial monitor to the Arduino. To read messages from the serial connection you have multiple options. You can read it byte by byte with `Serial.read()` or into a string with `Serial.readString()`. Before we can read the data in the serial buffer we have to check if there is any. You can do this with `Serial.available()` it tels us how many bytes there are to read. The arduino platform has a serial buffer of 63bytes. So if you exceed this maximum within one read cycle you will loose data.
+In this section we are going to send a message from the serial monitor to the Arduino. To read messages from the serial connection you have multiple options. You can read it byte by byte with `Serial.read()` or into a string with `Serial.readString()`. Before we can read the data in the serial buffer we have to check if there is any. You can do this with `Serial.available()` it tells us how many bytes there are to read. The arduino platform has a serial buffer of 63bytes. So if you exceed this maximum within one read cycle you will loose data.
 
 ### Exercise 2 ###
 
@@ -54,27 +54,27 @@ For this exercise I recommend using the `Serial.readString()` method.
 
 ## Communication between Arduino and Arduino ##
 
-For this section we will need an extra serial connection to communicate with an other Arduino. Therefore we will use a SoftwareSerial connection. This class can make a serial connection across almost all GPIO pins. You create a serial instance by creating an instance of SoftwareSerial `SoftwareSerial serial1(rxPin, txPin);`. For more information follow this [link](https://www.arduino.cc/en/Reference/SoftwareSerialConstructor). The SoftwareSerial class has the same interface as the Serial class, so the API should be familiar.
+In this section we will need an extra serial connection to communicate with an other Arduino. Therefore we will use a SoftwareSerial connection. This class can make a serial connection across almost all GPIO pins. You create a serial instance by creating an instance of SoftwareSerial `SoftwareSerial serial1(rxPin, txPin);`. For more information follow this [link](https://www.arduino.cc/en/Reference/SoftwareSerialConstructor). The SoftwareSerial class has the same interface as the Serial class, so the API should be familiar.
 
 When connecting 2 Arduino's together make sure to connect the tx port from Arduino 1 to the rx port of Arduino 2 and vice versa. Also make sure to connect the ground of both Arduino's.
 
 ### Exercise 3 ###
 
-For this exercise I want you to connect your Arduino to the Arduino of an other group. When sending a message using the serial monitor it should appear on the serial monitor connected to the other Arduino.
+For this exercise I want you to connect your Arduino to the Arduino of another group. When sending a message using the serial monitor it should appear on the serial monitor connected to the other Arduino.
 
 PC 1 => ARDUINO 1 => Arduino 2 => PC 2
 PC 1 <= ARDUINO 1 <= Arduino 2 <= PC 2
 
 ### Exercise 4 ###
 
-For this exercise I want one team to control the LED of an other team. So when team 1 presses the switch the LED of team 2 should turn on and off. You should discuss a standard in which the both of you wil communicate. The base of this exercise will be used in the following exercise.
+For this exercise I want one team to control the LED of another team. So when team 1 presses the switch, the LED of team 2 should turn on and off. You should discuss a standard in which the both of you will communicate. The base of this exercise will be used in the following exercise.
 
 Switch => Arduino 1 => Arduino 2 => LED
 Switch => Arduino 2 => Arduino 1 => LED
 
 ## Libraries and code splitting ##
 
-In this section we are going to learn and exercise how to make modules / libraries that contains a part of your functionality. For splitting code you can resort to putting functionality in classes located in different files. These files are called libraries and they should follow a specific folder structure for the Arduino IDE to recognize them. They should reside in a **`src`** folder then a folder with the same name as the library and then the header and code files. Example for a LED library you should have the following structure:
+In this section we are going to learn and practice how to make modules / libraries that contain a part of your functionality. For splitting code you can resort to putting functionality in classes located in different files. These files are called libraries and they should follow a specific folder structure for the Arduino IDE to recognize them. They should reside in a **`src`** folder then a folder with the same name as the library and then the header and code files. Example: for a LED library you should have the following structure:
 
 ``` text
 - app.ino
@@ -86,7 +86,7 @@ In this section we are going to learn and exercise how to make modules / librari
 
 ### The header file *(.hpp)* ###
 
-The header file describes what the code file will contain from public and private api. It is not necessary to define everything in the header file but it is recommended. When defining a library you should always check if it wasn't already included herefor you have the `#ifndef`, `#define`, `#endif` lines. This tells the compiler to include the files if they haven't been included yet.
+The header file describes what the code file will contain from public and private api. It is not necessary to define everything in the header file, but it is recommended. When defining a library you should always check if it was not already included herefor you have the `#ifndef`, `#define`, `#endif` lines. This tells the compiler to include the files if they have not been included yet.
 
 Example:
 
@@ -98,7 +98,7 @@ Example:
 #endif
 ```
 
-In the header file you describe which functions your class should have. For example I want a class to represent a LED.
+In the header file you describe which functions your class should have. For example: I want a class to represent a LED.
 It should have a constructor so I can pass which pin to use, an On method to turn on the LED, an Off method to turn the LED off and a private variable to keep the pinNumber.
 
 This would result in the following header file.
@@ -150,7 +150,7 @@ void LED::Off(){ // The Off method
 
 ### Using a custom library ###
 
-When you want to use your newly written library you should include it in an other library or in your main *`.ino`* file. To include it you use `#include "..."`. For example with the LED example it would be the following `#include "src/LED/LED.hpp"`.
+When you want to use your newly written library, you should include it in another library or in your main *`.ino`* file. To include it you use `#include "..."`. For example with the LED example it would be the following `#include "src/LED/LED.hpp"`.
 
 And you would use it like:
 
@@ -174,7 +174,7 @@ void loop(){
 
 ### Exercise 5 ###
 
-Now that we've learned how to make libraries and split our code, I would like to return to the solution of *exercise 5* and rewrite it. The result I would like to see is a Button and an LED class.
+Now that we have learned how to make libraries and split our code, I would like to return to the solution of *exercise 5* and rewrite it. The result I would like to see is a Button and an LED class.
 
 The **Button** class should contain the following functionality.
 
@@ -188,7 +188,7 @@ The **Button** class should contain the following functionality.
   
 The **LED** class should contain the following functionality.
 
-- A constructor to define which pin to use and pass a instance of SoftwareSerial
+- A constructor to define which pin to use and pass an instance of SoftwareSerial
 - A private variable to store the pinNumber
 - A private variable to store the SoftwareSerial instance
 - A public variable to store the previous state of the button
