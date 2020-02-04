@@ -63,6 +63,7 @@ When connecting 2 Arduino's together make sure to connect the tx port from Ardui
 For this exercise I want you to connect your Arduino to the Arduino of another group. When sending a message using the serial monitor it should appear on the serial monitor connected to the other Arduino.
 
 PC 1 => ARDUINO 1 => Arduino 2 => PC 2
+
 PC 1 <= ARDUINO 1 <= Arduino 2 <= PC 2
 
 ### Exercise 4 ###
@@ -70,6 +71,7 @@ PC 1 <= ARDUINO 1 <= Arduino 2 <= PC 2
 For this exercise I want one team to control the LED of another team. So when team 1 presses the switch, the LED of team 2 should turn on and off. You should discuss a standard in which the both of you will communicate. The base of this exercise will be used in the following exercise.
 
 Switch => Arduino 1 => Arduino 2 => LED
+
 Switch => Arduino 2 => Arduino 1 => LED
 
 ## Libraries and code splitting ##
