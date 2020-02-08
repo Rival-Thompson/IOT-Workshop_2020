@@ -9,9 +9,7 @@
                 "/Users/rivalthompson/Library/Arduino15/packages/esp8266/tools/**",
                 "/Users/rivalthompson/Library/Arduino15/packages/esp8266/hardware/esp8266/2.6.3/**"
             ],
-            "forcedInclude": [
-                "/Users/rivalthompson/Library/Arduino15/packages/arduino/hardware/avr/1.8.2/cores/arduino/Arduino.h"
-            ],
+            "forcedInclude": [],
             "macFrameworkPath": [
                 "/System/Library/Frameworks",
                 "/Library/Frameworks"
