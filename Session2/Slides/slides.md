@@ -204,13 +204,23 @@ The result should be the same as in the previous exercise.
 
 If you are ready with the exercises and feel like preparing a bit for the next session you can already read and thinker with the following libraries.
 
+### Extra links
+
 - [ESP8266WiFi](https://arduino-esp8266.readthedocs.io/en/latest/esp8266wifi/readme.html)
 - [Pub Sub Client](https://github.com/knolleary/pubsubclient/blob/master/examples/mqtt_esp8266/mqtt_esp8266.ino)
 - [Arduino JSON](https://arduinojson.org)
 
 ## Useful links ##
 
+### Nodemcu pin-out ##
+
+![pinout](https://i1.wp.com/www.teachmemicro.com/wp-content/uploads/2018/04/NodeMCUv3.0-pinout.jpg?ssl=1)
+
 [Documentation about serial communication](https://learn.sparkfun.com/tutorials/serial-communication/all)
+[Arduino digitalWrite()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)
+[Arduino digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/)
+[Arduino pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/)
+[Writing your own library](https://www.arduino.cc/en/Hacking/libraryTutorial)
 
 ## Thank word ##
 
