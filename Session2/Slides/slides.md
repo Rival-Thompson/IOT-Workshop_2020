@@ -216,11 +216,11 @@ If you are ready with the exercises and feel like preparing a bit for the next s
 
 ![pinout](https://i1.wp.com/www.teachmemicro.com/wp-content/uploads/2018/04/NodeMCUv3.0-pinout.jpg?ssl=1)
 
-[Documentation about serial communication](https://learn.sparkfun.com/tutorials/serial-communication/all)
-[Arduino digitalWrite()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)
-[Arduino digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/)
-[Arduino pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/)
-[Writing your own library](https://www.arduino.cc/en/Hacking/libraryTutorial)
+- [Documentation about serial communication](https://learn.sparkfun.com/tutorials/serial-communication/all)
+- [Arduino digitalWrite()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/)
+- [Arduino digitalRead()](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalread/)
+- [Arduino pinMode()](https://www.arduino.cc/reference/en/language/functions/digital-io/pinmode/)
+- [Writing your own library](https://www.arduino.cc/en/Hacking/libraryTutorial)
 
 ## Thank word ##
 
