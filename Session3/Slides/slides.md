@@ -2,7 +2,7 @@
 
 ## Intro ##
 
-Now that we know how to make a hardware solution that can communicate. In this session we are going to take this to the next level. Using a direct connection between two devices is a good beginning, but when you want to make a fully automated system you will need more than two devices. There for we are going to connect multiple devices in a network using Wi-Fi. We are going to let them communicate using a message buss. Here for we are going to use MQTT. This is one of the most used message buss systems in IOT. Now lets get started and connect our ESP-8266 / Node MCU to a Wi-Fi network.
+Now that we know how to make a hardware solution that can communicate. In this session we are going to take this to the next level. Using a direct connection between two devices is a good beginning, but when you want to make a fully automated system you will need more than two devices. There for we are going to connect multiple devices in a network using Wi-Fi. We are going to let them communicate using a message bus. Here for we are going to use MQTT. This is one of the most used message bus systems in IOT. Now lets get started and connect our ESP-8266 / Node MCU to a Wi-Fi network.
 
 ## Connecting to Wi-Fi ##
 
@@ -38,7 +38,7 @@ while(!setupDone){
 
 Now that we are connected to our network we can make a client and start using MQTT. But first lets print our local IP address. To do this you can print the output of `WiFi.localIP()`.
 
-## Entering the buss *Whoot Whoot* ##
+## Entering the bus *Whoot Whoot* ##
 
 So now lets connect our device to a mqtt broker. To do this we will have to include the `PubSubClient` library. When that is included you can make a new instance of PubSubClient and pass it the WiFiClient.
 
@@ -82,13 +82,13 @@ void loop(){
 
 ```
 
-## Publishing our first messages on the buss ##
+## Publishing our first messages on the bus ##
 
 Now that we have established a connection to our broker we post our first message on a topic. To post a message on a topic you use the `client.publish([TOPIC],[PAYLOAD])` method.
 
 ### Exercise 1: Publishing our first message ###
 
-For this exercise I want you to post your first message on the buss. I want you to post a count to a topic every 5 seconds.
+For this exercise I want you to post your first message on the bus. I want you to post a count to a topic every 5 seconds.
 
 To minimize the delays in your code you can use the `millis()` function this gives you a time stamp in milliseconds since the start of the program.
 
@@ -215,7 +215,7 @@ These things should get you started in enhancing your result of exercise 3 to ma
 
 ## Thank word ##
 
-Thank you for following my third session from the IOT-Workshop: First steps to home automation. I hope you had a great time and learned how to use the ESP8266's capability to connect to WiFi and how message buss systems like MQTT make it rather easy to make a larger system.
+Thank you for following my third session from the IOT-Workshop: First steps to home automation. I hope you had a great time and learned how to use the ESP8266's capability to connect to WiFi and how message bus systems like MQTT make it rather easy to make a larger system.
 
 Next session we are going to use our own preferred languages to automate the modules that we created today. So yes you can say goodbye to c++ if you want 😉.
 
