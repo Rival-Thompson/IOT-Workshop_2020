@@ -144,7 +144,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 ### Exercise 2: Receiving messages ###
 
 In this exercise I want you to subscribe to the topic of your neighbour and print the messages you receive to the SerialMonitor.
-So you can continue from the previous exercise and extend it with the new things you learned above.
+The messages you type in the monitor should be posted too.
 
 ### Exercise 3: LED's and Buttons ###
 
