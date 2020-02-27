@@ -42,6 +42,8 @@ Now that we are connected to our network, we can make a client and we can start 
 
 So now let's connect our device to a MQTT-broker. To do this, we will have to include the `PubSubClient` library. When that is included you can make a new instance of PubSubClient and pass it the WiFiClient.
 
+We will use the following broker `test.mosquitto.org` on port `1883`
+
 ``` C++
 WiFiClient espClient;
 PubSubClient client(espClient);
