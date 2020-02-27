@@ -20,7 +20,7 @@ We are going to wait until the connection is established or end when the connect
 bool setupDone = false;
 Serial.print("Connecting");
 while(!setupDone){
-  wl_status_t status = Wifi.status();
+  wl_status_t status = WiFi.status();
   if(status == WL_CONNECTED){
     setupDone = true;
   } else if(status == WL_CONNECT_FAILED ) {
