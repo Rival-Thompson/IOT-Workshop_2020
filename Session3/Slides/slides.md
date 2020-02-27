@@ -120,6 +120,8 @@ Now that we can publish messages, it is time to receive some posts. We do this b
 
 You can register the callback function with the `client.setCallback([FUNCTION])` method. The callback should have the following signature: `void callback(const char* TOPIC, const byte* PAYLOAD, unsigned int LENGTH)`. To convert the payload from ``byte*`` to a string you can interpret and compare against you base yourself on the following example.
 
+in the reconnect function you should subscribe to the topic you this using `client.subscribe([TOPIC]);`.
+
 Example:
 
 ``` C++
