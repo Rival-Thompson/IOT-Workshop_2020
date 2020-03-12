@@ -5,7 +5,7 @@
 #include "./src/ToggleDevice/ToggleDevice.hpp"
 
 const char* ssid = "Guest Axxes - AT Recruitment";
-const char* password = "WelkomOpOnsNetwerk";
+const char* password = "....";
 
 const char* mqtt_server = "mqtt.robkenis.com";
 const int mqtt_port = 1883;
