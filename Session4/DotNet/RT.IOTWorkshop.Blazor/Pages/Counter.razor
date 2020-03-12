@@ -1,0 +1,33 @@
+﻿@page "/counter"
+@inject IJSRuntime jsRuntime
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button @onclick="Subscribe">subscribe</button>
+<button @onclick="PublishAsync">publish</button>
+
+@code {
+
+    private MQTTProvider provider = new MQTTProvider("mqtt.fluux.io");
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private async Task PublishAsync(){
+        await provider.Publish("iotworkshop/tst", "hello world");
+    }
+
+    private void MessageRecieved(string msg){
+        jsRuntime.InvokeAsync<string>("console.log", msg);
+    }
+
+    private async Task Subscribe(){
+        await provider.Subscribe("iotworkshop/tst",MessageRecieved);
+    }
+}

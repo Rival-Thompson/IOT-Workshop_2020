@@ -1,0 +1,14 @@
+@page "/mqttclient"
+@using RT.IOTWorkshop.Blazor.Components.MQTTClient
+
+    <div class="container">
+
+        <h1> MQTT Client </h1>
+        <MQTTPublisher Provider="Provider" />
+        <MQTTSubscriber Provider="Provider" />
+
+    </div>
+
+@code {
+    private MQTTProvider Provider { get; set; } = new MQTTProvider("mqtt.fluux.io");
+}

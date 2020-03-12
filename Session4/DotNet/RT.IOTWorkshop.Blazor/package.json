@@ -1,7 +1,10 @@
-﻿{
+{
   "version": "1.0.0",
-  "name": "asp.net",
+  "name": "rt-workshop-iot-session4",
   "private": true,
   "devDependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1"
   }
 }

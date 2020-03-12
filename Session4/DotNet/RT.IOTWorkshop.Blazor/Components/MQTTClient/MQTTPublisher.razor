@@ -1,5 +1,67 @@
-﻿<h3>Component1</h3>
+﻿<style>
+    .card-header > .btn-card-toggle {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        display: block;
+        text-align: left;
+    }
+
+    .card-header.card-header-collapse {
+        padding: 0;
+    }
+</style>
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header card-header-collapse" id="headingOne">
+            <button class="btn btn-text btn-card-toggle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Publisher <span style="width: 0.9em; height: 0.9em; display: inline-block;"
+                                class="rounded-circle @(Provider.Connected ? "bg-success" : "bg-danger") "></span>
+            </button>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" >
+            <div class="card-body">
+                <form>
+                    <div class="form-group mb-3">
+                        <label for="message-topic">Topic:</label>
+                        <input type="text" id="message-topic" class="form-control" placeholder="Topic" aria-label="Topic" name="topic" @bind="Topic">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-content">Message:</label>
+                        <textarea class="form-control" id="message-content" name="message" @bind="MessageContent" />
+                    </div>
+
+                    <button type="button" class="btn btn-primary mt-3" @onclick="PublishAsync">
+                        Publish
+                        <div style="width: 1em; height: 1em;" class="spinner-border text-light @(IsLoading ? "" : "d-none")" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>    
+</div>
+
 
 @code {
+    [Parameter]
+    public MQTTProvider Provider { get; set; }
 
+    private bool IsLoading { get; set; }
+
+    private string Topic { get; set; } = "iotworkshop/tst";
+
+    private string MessageContent { get; set; }
+
+    private async Task PublishAsync()
+    {
+        IsLoading = true;
+        await Provider.Publish(Topic, MessageContent);
+        IsLoading = false;
+    }
 }

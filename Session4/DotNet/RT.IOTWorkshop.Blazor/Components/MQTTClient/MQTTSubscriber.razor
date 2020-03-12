@@ -1,5 +1,84 @@
-﻿<h3>Component1</h3>
+﻿@inject IJSRuntime js
+
+<div class="col-12">
+    <div class="card">
+        <div class="card-header card-header-collapse" id="headingOne">
+            <button class="btn btn-text btn-card-toggle" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Subscriber <span style="width: 0.9em; height: 0.9em; display: inline-block;"
+                                class="rounded-circle @(Provider.Connected ? "bg-success" : "bg-danger") "></span>
+            </button>
+        </div>
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+            <div class="card-body">
+                <form>
+                    <div class="form-group mb-3">
+                        <label for="message-topic">Topic:</label>
+                        <div class="input-group">
+                        <input type="text" id="message-topic" class="form-control" placeholder="Topic" aria-label="Topic" name="topic" @bind="Topic">
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-primary mt-3" @onclick="SubscribeAsync">
+                                    Subscribe
+                                    <div style="width: 1em; height: 1em;" class="spinner-border text-light @(IsLoading ? "" : "d-none")" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>                
+                </form>
+                <div>
+                    @foreach (var sunscription in Subscriptions)
+                    {
+                        <div>
+                            <p>@sunscription.Key</p>
+                            <div>
+                                <ul>
+                                    @foreach (var message in sunscription.Value)
+                                    {
+                                        <li>@message</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @code {
+    [Parameter]
+    public MQTTProvider Provider { get; set; }
 
+    private Dictionary<string, IList<string>> Subscriptions { get; set; } = new Dictionary<string, IList<string>>();
+
+    private bool IsLoading { get; set; }
+
+    private string Topic { get; set; } = "iotworkshop/tst";
+
+    private string MessageContent { get; set; }
+
+
+
+    private void MessageReceived(string topic, string message)
+    {
+        Subscriptions[topic].Add(message);
+        StateHasChanged();
+        js.InvokeVoidAsync("console.log", "message received");
+    }
+
+    private async Task SubscribeAsync()
+    {
+        IsLoading = true;
+        if(!Subscriptions.Any(kv => kv.Key == Topic))
+        {
+            Subscriptions.Add(Topic, new List<string>());
+
+            await Provider.Subscribe(Topic, (string message) => MessageReceived(Topic, message));
+
+        }
+        IsLoading = false;
+    }
 }
